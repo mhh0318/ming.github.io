@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Ming&#39;s Blog</title>
+    <title>Review of Shallow Neural Network I · Ming&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/"> HomePage </a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Review of Shallow Neural Network I</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/"> Home Page </a>
 </header>
@@ -220,24 +231,78 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/2560x863)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Review of Shallow Neural Network I
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Logit Regression">Logit Regression</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Sigmoid">Sigmoid</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="cross-entropy">cross-entropy</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">282</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/03/25</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,68 +403,47 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/25/Summary-1/">
-            
-                <span>Review of Shallow Neural Network I</span>
-        </a>
-        <div class="abstract-content">
-            This part I wanna write down some understand about 2-layers neural network, mainly about Logit Regression to do binary classification tasks and some derive of forward propagation and backward propagation.
-Logit RegressionIn Logit Regression, we can get a prediction output $\hat{y}$. Assume our ta...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Logit Regression">Logit Regression</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Sigmoid">Sigmoid</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="cross-entropy">cross-entropy</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/25/1/">
-            
-                <span>The First Blog to TEST</span>
-        </a>
-        <div class="abstract-content">
-            This is the first blog.As a memorial
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>This part I wanna write down some understand about 2-layers neural network, mainly about Logit Regression to do binary classification tasks and some derive of forward propagation and backward propagation.</p>
+<h3 id="Logit-Regression"><a href="#Logit-Regression" class="headerlink" title="Logit Regression"></a>Logit Regression</h3><p>In Logit Regression, we can get a prediction output $\hat{y}$. Assume our task is a supervised learning binary classification task, then we will have a true value $y$ and the value is $0$ or $1$, So our prediction value $\hat{y}$ is expected to fall in $[0,1]$, cause it represents the probability of $y$ when $x$ is given. We use a normal activation function - sigmoid function $\sigma$ to make the regression value in $[0,1]$.</p>
+<h4 id="Sigmoid-Function"><a href="#Sigmoid-Function" class="headerlink" title="Sigmoid Function"></a>Sigmoid Function</h4><p>$$ \sigma(z) = \frac{1}{1+ e^{-z}} $$This function make a linear function change into the unlinear function and limit the output in $[0,1]$</p>
+<p>Then we have the logit regression model and we can use this model to define a cost function for training the weight $\omega$ and bias $b$ $$ \hat{y} = \sigma(\omega^Tx+b) $$</p>
+<h4 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h4><p>Given $ { (x^{(1)},y^{(1)}),…,(x^{(m)},y^{(m)}) } $, we want to get $\hat{y} \approx y$, so we want to have a function to show when the loss is minimum. </p>
+<p>Maybe <code>MSE</code> function is suitable? </p>
+<p>Nope, <code>MSE</code> might give us too many “minimum” value due to it can be non-convex function. Therefore, we introduce another method to get the loss, or called the error: <code>cross-entropy error function</code>: $$ H(x) = - y\log\hat{y} $$ and I have to say we do binary classification now thus we have $0,1$ two conditions. So let me introduce the cross-entropy loss function $$ \ell = - (y\log\hat{y} + (1-y)\log(1-\hat{y}) $$</p>
 
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/25</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
     </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/03/25/1/" title="The First Blog to TEST">
+                    <div class="prevTitle">The First Blog to TEST</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -477,6 +521,24 @@ Logit RegressionIn Logit Regression, we can get a prediction output $\hat{y}$. A
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Logit-Regression"><span class="toc-number">1.</span> <span class="toc-text">Logit Regression</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sigmoid-Function"><span class="toc-number">1.1.</span> <span class="toc-text">Sigmoid Function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Loss-function"><span class="toc-number">1.2.</span> <span class="toc-text">Loss function</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -612,6 +674,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
