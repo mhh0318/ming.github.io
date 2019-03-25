@@ -378,6 +378,7 @@ li {
 .intro-title,
 .intro-subtitle {
     font-family: "Oswald-Regular";
+    text-align: center;
     color: #fff;
     margin: 0;
     opacity: 0;
