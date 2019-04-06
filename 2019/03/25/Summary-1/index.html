@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Review of Shallow Neural Network I · 明 | Ming&#39;s Studio</title>
+    <title>Shallow Neural Network · 明 | Ming&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/"> HomePage </a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Review of Shallow Neural Network I</a>
+                <a href="#" class="post-name">Shallow Neural Network</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Review of Shallow Neural Network I
+            Shallow Neural Network
             <!-- 404 -->
             
         </h1>
@@ -276,7 +276,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">489</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                        <span>Word count: <span class="post-count word-count">981</span>Reading time: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -406,7 +406,7 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <p>This part I wanna write down some understand about 2-layers neural network, mainly about Logit Regression to do binary classification tasks and some derive of forward propagation and backward propagation.</p>
-<h3 id="Cost-Logit-Regression-Model"><a href="#Cost-Logit-Regression-Model" class="headerlink" title="Cost : Logit Regression Model"></a>Cost : Logit Regression Model</h3><p>In Logit Regression, we can get a prediction output $\hat{y}$. Assume our task is a supervised learning binary classification task, then we will have a true value $y$ and the value is $0$ or $1$, So our prediction value $\hat{y}$ is expected to fall in $[0,1]$, cause it represents the probability of $y$ when $x$ is given. We use a normal activation function - sigmoid function $\sigma$ to make the regression value in $[0,1]$.</p>
+<h3 id="Construct-of-Network"><a href="#Construct-of-Network" class="headerlink" title="Construct of Network"></a>Construct of Network</h3><h4 id="Cost-Logit-Regression-Model"><a href="#Cost-Logit-Regression-Model" class="headerlink" title="Cost : Logit Regression Model"></a>Cost : Logit Regression Model</h4><p>In Logit Regression, we can get a prediction output $\hat{y}$. Assume our task is a supervised learning binary classification task, then we will have a true value $y$ and the value is $0$ or $1$, So our prediction value $\hat{y}$ is expected to fall in $[0,1]$, cause it represents the probability of $y$ when $x$ is given. We use a normal activation function - sigmoid function $\sigma$ to make the regression value in $[0,1]$.</p>
 <h4 id="Sigmoid-Function"><a href="#Sigmoid-Function" class="headerlink" title="Sigmoid Function"></a>Sigmoid Function</h4><p>$$ \sigma(z) = \frac{1}{1+ e^{-z}} $$This function make a linear function change into the unlinear function and limit the output in $[0,1]$</p>
 <p>Then we have the logit regression model and we can use this model to define a cost function for training the weight $\omega$ and bias $b$ $$ \hat{y} = \sigma(\omega^Tx+b) $$</p>
 <h4 id="Loss-Function"><a href="#Loss-Function" class="headerlink" title="Loss Function"></a>Loss Function</h4><p>Given $ { (x^{(1)},y^{(1)}),…,(x^{(m)},y^{(m)}) } $, we want to get $\hat{y} \approx y$, so we want to have a function to show when the loss is minimum. </p>
@@ -415,8 +415,17 @@ height:50vh;
 <p>Here <code>cross entropy</code> have the same performance as <code>Maximum Likelyhood Estimation</code>, because <strong>the essence of Cross-Entropy is the maximun of likelyhood function in classification task</strong></p>
 <p>I will prove this cost function is corrcet in another mathematical way at the bottom of this post. </p>
 <h4 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h4><p>Loss Function is defined with respect to a single training example. It measures the performance on a single training example. And the cost function is defined to measure how well your entire training set. $$ J(w,b) = - \frac{1}{m} \sum_{i=1}^m \ell(y,\hat{y}) $$ $$ = - \frac{1}{m} \sum_{i=1}^m y^{(i)}\log\hat{y}^{(i)} + (1-y)^{(i)}\log(1-\hat{y})^{(i)} $$ </p>
-<h3 id="Optimize-Gradient-Descent"><a href="#Optimize-Gradient-Descent" class="headerlink" title="Optimize : Gradient Descent"></a>Optimize : Gradient Descent</h3><p>Once we have cost function, we want to minmize the cost, namely, we want to make $ J(w,b) $ as small as possible. <code>Gradient Descent</code> is a method to do that. Here we have a equation expressed the <code>Gradient Descent</code>: $$ \theta = \theta - \alpha \frac{dJ(\omega)}{d\omega} $$ Here $\theta$ can be $\omega$ or $b$. And $\alpha$ is the <code>magic number</code> or <code>Learning rate</code>. Normally it is a very small number due to our output may be always a number in $[0,1]$</p>
-<h3 id="Forward-Propagation-and-Backward-Propagation"><a href="#Forward-Propagation-and-Backward-Propagation" class="headerlink" title="Forward Propagation and Backward Propagation"></a>Forward Propagation and Backward Propagation</h3><p>There are two essenti</p>
+<h4 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h4><p>Once we have cost function in the network, we want to minmize the cost, namely, we want to make $ J(w,b) $ as small as possible. <code>Gradient Descent</code> is a method to do that. Here we have a equation expressed the <code>Gradient Descent</code>: $$ \theta = \theta - \alpha \frac{dJ(w,b)}{d\theta} $$ Here $\theta$ can be $\omega$ or $b$. And $\alpha$ is the <code>magic number</code> or <code>Learning rate</code>. Normally it is a very small number due to our output may be always a number in $[0,1]$</p>
+<h3 id="Propagation-in-Network"><a href="#Propagation-in-Network" class="headerlink" title="Propagation in Network"></a>Propagation in Network</h3><p>Now we have a neural network as following:<br><img src="/images/1-1.png" alt></p>
+<h4 id="Forward-Propagation"><a href="#Forward-Propagation" class="headerlink" title="Forward Propagation"></a>Forward Propagation</h4><p>In a shallow neural network, we suppose there are only one hidden layers with four units. If we have a input $X$ with three parameters $x^{(1)}, x^{(2)}, x^{(3)}$, and the size of it is $[3,1]$. In hidden layer, for example, the first unit of the layer, the input $$Z^{(hidden)(1)} = \omega^{(1-1)}x^{(1)} + \omega^{(2-1)}x^{(2)} + \omega^{(3-1)}x^{(3)} + b $$ We can change it into a vectorize version $$ Z^{(hidden)(1)} = W^{(1)T}X + b^{[1]} $$ and the output is the first unit input, so the size of $Z^{(hidden)(1)}$ is $[1,1]$</p>
+<p>If we stack all $\omega$ together, then, in this example, the size of $W^{[1]}$ become $[3,4]$, so the output of $$ Z^{(hidden)} = W^{[1]T}X+b^{[1]} $$ become the input of all four units in the hidden layer, which size is $[4,1]$</p>
+<p>Then we employ an activation function $g$ on the input $Z$, the activate function can be Sigmoid, tanh or ReLU and others. Here we use sigmoid function, the output of hidden layers $$ a^{(hidden layer)} = g(Z^{(hidden)}) = \sigma(Z^{(hidden)}) $$ Here we should know the size of $a^{(hidden layer)}$ is $[4,1]$.  </p>
+<p>Next is the output layer, as usual, $$Z^{(output)} = W^{[2]T}X + b^{[2]}$$ where the size of $W^{[2]T}$ is $[4,1]$ and the prediction, which is also the output of the output layer, $$ \hat{y} = a^{(output layer)} = g(Z^{(output)}) = \sigma(Z^{(putput)}) $$</p>
+<h4 id="Back-Propagation"><a href="#Back-Propagation" class="headerlink" title="Back Propagation"></a>Back Propagation</h4><p>From Forward Propagation, we get the prediction $\hat{y}$ with some parameters $W^{[1]},b^{[1]},W^{[2]},b^{[2]}$. We also have the cost function $$ J(W^{[1]},b^{[1]},W^{[2]},b^{[2]}) = = - \frac{1}{m} \sum_{i=1}^m y^{(i)}\log\hat{y}^{(i)} + (1-y)^{(i)}\log(1-\hat{y})^{(i)} $$</p>
+<p>From output layer to hidden layer, we can compute $$dZ^{[2]} = \frac{dJ}{dZ^{[2]}} = A^{(outputlayer)}-Y$$ so $$dW^{[2]} = \frac{dJ}{dW^{[2]}} = \frac{1}{m} dZ^{[2]} A^{(hiddenlayer)T}$$ and $$db^{[2]} = \frac{dJ}{db^{[2]}} = \frac{1}{m} dZ^{[2]} $$</p>
+<p>From hidden layer to input layerm we can compute $$dZ^{[1]} = \frac{dJ}{dZ^{[1]}} = W^{[2]T}dZ^{[2]} * g^{[1]\prime}(Z^{(hidden)})$$ so $$dW^{[1]} = \frac{dJ}{dW^{[1]}} = \frac{1}{m} dZ^{[1]} X^{T}$$ and $$db^{[1]} = \frac{dJ}{db^{[1]}} = \frac{1}{m} dZ^{[1]} $$</p>
+<h4 id="Gradient-Descent-1"><a href="#Gradient-Descent-1" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h4><p>Then we can set <code>learning rate</code> in Gradient Descent function:$$ W^{[1]} = W^{[1]} - \alpha \frac{dJ}{dW^{[1]}} $$  $$ b^{[1]} = b^{[1]} - \alpha \frac{dJ}{db^{[1]}} $$  and $$ W^{[2]} = W^{[2]} - \alpha \frac{dJ}{dW^{[2]}} $$  $$ b^{[2]} = b^{[2]} - \alpha \frac{dJ}{db^{[2]}} $$</p>
+<h3 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h3><p>After a number of iteration, we can get a set of $W^{[1]},b^{[1]},W^{[2]},b^{[2]}$ which make the best prediction has the best fitting value. </p>
 
     </article>
     <!-- license  -->
@@ -563,7 +572,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cost-Logit-Regression-Model"><span class="toc-number">1.</span> <span class="toc-text">Cost : Logit Regression Model</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sigmoid-Function"><span class="toc-number">1.1.</span> <span class="toc-text">Sigmoid Function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Loss-Function"><span class="toc-number">1.2.</span> <span class="toc-text">Loss Function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cost-Function"><span class="toc-number">1.3.</span> <span class="toc-text">Cost Function</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Optimize-Gradient-Descent"><span class="toc-number">2.</span> <span class="toc-text">Optimize : Gradient Descent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Forward-Propagation-and-Backward-Propagation"><span class="toc-number">3.</span> <span class="toc-text">Forward Propagation and Backward Propagation</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Construct-of-Network"><span class="toc-number">1.</span> <span class="toc-text">Construct of Network</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cost-Logit-Regression-Model"><span class="toc-number">1.1.</span> <span class="toc-text">Cost : Logit Regression Model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sigmoid-Function"><span class="toc-number">1.2.</span> <span class="toc-text">Sigmoid Function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Loss-Function"><span class="toc-number">1.3.</span> <span class="toc-text">Loss Function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cost-Function"><span class="toc-number">1.4.</span> <span class="toc-text">Cost Function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradient-Descent"><span class="toc-number">1.5.</span> <span class="toc-text">Gradient Descent</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Propagation-in-Network"><span class="toc-number">2.</span> <span class="toc-text">Propagation in Network</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Forward-Propagation"><span class="toc-number">2.1.</span> <span class="toc-text">Forward Propagation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Back-Propagation"><span class="toc-number">2.2.</span> <span class="toc-text">Back Propagation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradient-Descent-1"><span class="toc-number">2.3.</span> <span class="toc-text">Gradient Descent</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Results"><span class="toc-number">3.</span> <span class="toc-text">Results</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -642,7 +651,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/25</span><a class="archive-post-title" href="/2019/03/25/Summary-1/">Review of Shallow Neural Network I</a>
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href="/2019/03/25/Summary-1/">Shallow Neural Network</a>
         </li>
     
     
@@ -741,7 +750,22 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 </html>
 
 
