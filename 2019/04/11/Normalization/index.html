@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Regularization and Normalization · 明 | Ming&#39;s Studio</title>
+    <title>Regularization · 明 | Ming&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/"> HomePage </a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Regularization and Normalization</a>
+                <a href="#" class="post-name">Regularization</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Regularization and Normalization
+            Regularization
             <!-- 404 -->
             
         </h1>
@@ -266,15 +266,15 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Regularization">Regularization</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="L1 and L2 norm">L1 and L2 norm</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Normalization">Normalization</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Dropout">Dropout</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">552</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                        <span>Word count: <span class="post-count word-count">830</span>Reading time: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -403,7 +403,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h2><h3 id="Why-need-Regularization"><a href="#Why-need-Regularization" class="headerlink" title="Why need Regularization?"></a>Why need Regularization?</h3><p>The main reason of regularization is to avoid overfitting. </p>
+        <h3 id="Why-need-Regularization"><a href="#Why-need-Regularization" class="headerlink" title="Why need Regularization?"></a>Why need Regularization?</h3><p>The main reason of regularization is to avoid overfitting. </p>
 <p><strong>Overfitting</strong> is a case that using too much parameters to make the model. For example, in the following picture, the green line represents an overfitted model and the black line represents a regularized model. </p>
 <p><img src="/images/2-1.png" alt></p>
 <p>Also, we can define a overfitting case by comparing the train set and dev set errors. If a model can give a accurate prediction of train set, we say the model has low <em>Bias</em>, namely, if the model give a accurate prediction of dev set, it has a low <em>Variance</em>. The case that have a low <em>bias</em> with a high <em>variance</em>, it can be defined as a <em>overfitting</em> model.</p>
@@ -418,7 +418,16 @@ height:50vh;
 <p>Another case is that in activation fuction, such as <code>tanh</code> , </p>
 <p><img src="/images/tanh.png" alt></p>
 <p>With the increasing of $\lambda$, the weight $\omega ^{[\ell]}$ decreases, and the output $Z=w^{[\ell]}a^{[\ell-1]}+b{[\ell]}$,  as the image shows, the range of $g(Z)$ falls in linear area(red line), thus every layer is almost linear, and the whole network is almost linear, so there is not much overfitting.</p>
-<h3 id="L1-Regularization"><a href="#L1-Regularization" class="headerlink" title="L1 Regularization"></a>L1 Regularization</h3>
+<h3 id="L1-Regularization"><a href="#L1-Regularization" class="headerlink" title="L1 Regularization"></a>L1 Regularization</h3><p>L1 Regularization is just change the add term from L2 norm to L1 norm. The term of L1 norm is $$ \frac{\lambda}{n} \left||\omega|\right|_1 = \frac{\lambda}{n} \sum_j^{n_x} |\omega_j| $$ Then we calculate its derivative, $$ d\omega = (ori\ backprop) + \frac{\lambda}{n} sgn(\omega) $$ and the update weight become $$\omega = \omega - \frac{\alpha \lambda}{n} sgn(\omega) - \alpha(ori\ backprop)$$</p>
+<p>When $\omega$ is positive, updated $\omega$ is decreased, namely, when $\omega$ is negative, updated $\omega$ is increased. – Therefore, the effect of L1 norm is to make the weight $\omega$ close to 0 ,and make more and more parameters in weight matrices become 0, which is equivalent to reducing the complexity of the network and preventing overfitting.</p>
+<p><img src="/images/2-L1R.png" alt></p>
+<p>Comparing with L2 Regularization, L1 is to make the parameters to 0 (the intersection point of L1 circle and contour line is on the coordinate axis $[0,\omega_2]$) and L2 is to make the parameters close to 0.</p>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><table><tr><td><a><img src="/images/2-orinet.png" width="432" height="253"></a></td><td><a><img src="/images/2-Dropout.png" width="432" height="253"></a></td></tr></table>
+
+<p>Dropout is another method to prevent overfitting. For example, if the left neural network is overfitting. With dropout, we go through each of the layers and set some probability of eliminating a node in neural network. We set $0.5$ chance of keeping the node and $0.5$ chance of removing, of course the probability can be different in different layers. Then we will get some node to be eliminated, we delete the ingoing lines and outgoing lines of the node, and we can get a much smaller, really much diminished network, as the right picture shows.</p>
+<p>The intuition is that <strong>The network cannot rely on any one features, so spread out weights.</strong> </p>
+<p>Dropout has the similar effect to L1 regularization.</p>
+
     </article>
     <!-- license  -->
     
@@ -559,7 +568,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Regularization"><span class="toc-number">1.</span> <span class="toc-text">Regularization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-need-Regularization"><span class="toc-number">1.1.</span> <span class="toc-text">Why need Regularization?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L2-Regularization-Weight-Decay"><span class="toc-number">1.2.</span> <span class="toc-text">L2 Regularization (Weight Decay)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-L2-Regularization-Works"><span class="toc-number">1.3.</span> <span class="toc-text">How does L2 Regularization Works</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L1-Regularization"><span class="toc-number">1.4.</span> <span class="toc-text">L1 Regularization</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-need-Regularization"><span class="toc-number">1.</span> <span class="toc-text">Why need Regularization?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L2-Regularization-Weight-Decay"><span class="toc-number">2.</span> <span class="toc-text">L2 Regularization (Weight Decay)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-L2-Regularization-Works"><span class="toc-number">3.</span> <span class="toc-text">How does L2 Regularization Works</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L1-Regularization"><span class="toc-number">4.</span> <span class="toc-text">L1 Regularization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dropout"><span class="toc-number">5.</span> <span class="toc-text">Dropout</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -572,6 +581,8 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
@@ -637,7 +648,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/11</span><a class="archive-post-title" href="/2019/04/11/Normalization/">Regularization and Normalization</a>
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href="/2019/04/11/Normalization/">Regularization</a>
         </li>
     
     
@@ -669,15 +680,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Normalization"><span class="iconfont-archer">&#xe606;</span>Normalization</span>
     
-        <span class="sidebar-tag-name" data-tags="Bayes"><span class="iconfont-archer">&#xe606;</span>Bayes</span>
-    
-        <span class="sidebar-tag-name" data-tags="Naive Bayes"><span class="iconfont-archer">&#xe606;</span>Naive Bayes</span>
-    
         <span class="sidebar-tag-name" data-tags="Logit Regression"><span class="iconfont-archer">&#xe606;</span>Logit Regression</span>
     
         <span class="sidebar-tag-name" data-tags="Sigmoid"><span class="iconfont-archer">&#xe606;</span>Sigmoid</span>
     
         <span class="sidebar-tag-name" data-tags="cross-entropy"><span class="iconfont-archer">&#xe606;</span>cross-entropy</span>
+    
+        <span class="sidebar-tag-name" data-tags="Bayes"><span class="iconfont-archer">&#xe606;</span>Bayes</span>
+    
+        <span class="sidebar-tag-name" data-tags="Naive Bayes"><span class="iconfont-archer">&#xe606;</span>Naive Bayes</span>
+    
+        <span class="sidebar-tag-name" data-tags="L1 and L2 norm"><span class="iconfont-archer">&#xe606;</span>L1 and L2 norm</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dropout"><span class="iconfont-archer">&#xe606;</span>Dropout</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
