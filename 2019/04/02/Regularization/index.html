@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>明 | Ming&#39;s Studio</title>
+    <title>Regularization · 明 | Ming&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/"> HomePage </a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Regularization</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/"> Home Page </a>
 </header>
@@ -220,24 +231,76 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/2560x863)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Regularization
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="L1 and L2 norm">L1 and L2 norm</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Dropout">Dropout</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">830</span>Reading time: <span class="post-count reading-time">5 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/04/02</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,41 +401,85 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/02/Bayes/">
-            
-                <span>Bayes Classifier</span>
-        </a>
-        <div class="abstract-content">
-            Some introduction to Bayes Classifier and Naive Bayes.
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/02</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Bayes">Bayes</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Naive Bayes">Naive Bayes</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="Why-need-Regularization"><a href="#Why-need-Regularization" class="headerlink" title="Why need Regularization?"></a>Why need Regularization?</h3><p>The main reason of regularization is to avoid overfitting. </p>
+<p><strong>Overfitting</strong> is a case that using too much parameters to make the model. For example, in the following picture, the green line represents an overfitted model and the black line represents a regularized model. </p>
+<p><img src="/images/2-1.png" alt></p>
+<p>Also, we can define a overfitting case by comparing the train set and dev set errors. If a model can give a accurate prediction of train set, we say the model has low <em>Bias</em>, namely, if the model give a accurate prediction of dev set, it has a low <em>Variance</em>. The case that have a low <em>bias</em> with a high <em>variance</em>, it can be defined as a <em>overfitting</em> model.</p>
+<p>Using <strong>Regularization</strong> can prevent <em>overfitting</em>. </p>
+<h3 id="L2-Regularization-Weight-Decay"><a href="#L2-Regularization-Weight-Decay" class="headerlink" title="L2 Regularization (Weight Decay)"></a>L2 Regularization (Weight Decay)</h3><p>Recall loss function $\ell$ of <em>Logit Regression</em> $ J(\omega,b) $, $\omega$ ans $b$ are the parameters of the loss function, and $\omega$ is a high-demisional vector$[m,1]$ while $b$ is a real number. To make the regularization, what we do is add a term, $$ J(regularization) = J(\omega,b) + \frac{\lambda}{2m} \left||\omega|\right|_2^2 $$</p>
+<p>The regulatization term can be expressed as :$$\left||\omega|\right|_2^2 = \sum_j^{n_x} w_j^2=\omega^T \omega $$ $\lambda$ here is called regularization parameter, it is used to trade off between the training set versus setting two normal parameters $\omega$ and $b$ as a small value.</p>
+<p><img src="/images/2-L2R.png" alt></p>
+<p>In a neural network, our loss function is $J(\omega^{[1]},b^{[1]},…,\omega^{[L]},b^{[L]})$, where $L$ is the number of layers. So the regularized loss function becomes $$J = J(\omega^{[1]},b^{[1]},…,\omega^{[L]},b^{[L]}) + \frac{\lambda}{2m} \sum_{\ell = 1}^L \left||\omega^{[\ell]}|\right|_F^2$$ and the regularized term called <em>Frobenius Norm</em> $$\left||\omega^{[\ell]}|\right|_F^2 = \sum_i^{n^{[\ell]}} \sum_j^{n^{[\ell-1]}} (\omega_{ij}^{[\ell]})^2$$ and the size of $\omega^{[\ell]}$ is $(n^{[\ell-1]},n^{[\ell]})$. </p>
+<p>From the calculate of backprop, we can get $dW^{[L]}$ and update $W^{[L]} = W^{[L]} - \alpha dW^{[L]}$ by gradient decent. After regulazition, we compute the backprop again, $$ dw^{[\ell]} = (original\ backprop) + \frac{\lambda}{m} w^{[\ell]} $$ and the update $$ w^{[\ell]} = w^{[\ell]} - \alpha [(orininal\ backprop) + \frac{\lambda}{m} w^{[\ell]}] = w^{[\ell]} (1-\frac{\alpha \lambda}{m}) - \alpha(original\ backprop) $$ </p>
+<p>After iteration, the weight $w^{[\ell]}$ becomes more and more small.</p>
+<h3 id="How-does-L2-Regularization-Works"><a href="#How-does-L2-Regularization-Works" class="headerlink" title="How does L2 Regularization Works"></a>How does L2 Regularization Works</h3><p>We did for regularization is add the extra term $\frac{\lambda}{2m} \sum_{\ell = 1}^L \left||\omega^{[\ell]}|\right|_F^2$ that penalizes the weight matrices from being too large. If we set the parameter $\lambda$ large enough, the weight matrics $w^{[\ell]} \approx 0$. So one intuition is to set some weight of hidden layers to zero, if that is the case, it simplify the complex network to a smaller neural network, deep but simple, and it bring the network from high various to high bias. </p>
+<p>Another case is that in activation fuction, such as <code>tanh</code> , </p>
+<p><img src="/images/tanh.png" alt></p>
+<p>With the increasing of $\lambda$, the weight $\omega ^{[\ell]}$ decreases, and the output $Z=w^{[\ell]}a^{[\ell-1]}+b{[\ell]}$,  as the image shows, the range of $g(Z)$ falls in linear area(red line), thus every layer is almost linear, and the whole network is almost linear, so there is not much overfitting.</p>
+<h3 id="L1-Regularization"><a href="#L1-Regularization" class="headerlink" title="L1 Regularization"></a>L1 Regularization</h3><p>L1 Regularization is just change the add term from L2 norm to L1 norm. The term of L1 norm is $$ \frac{\lambda}{n} \left||\omega|\right|_1 = \frac{\lambda}{n} \sum_j^{n_x} |\omega_j| $$ Then we calculate its derivative, $$ d\omega = (ori\ backprop) + \frac{\lambda}{n} sgn(\omega) $$ and the update weight become $$\omega = \omega - \frac{\alpha \lambda}{n} sgn(\omega) - \alpha(ori\ backprop)$$</p>
+<p>When $\omega$ is positive, updated $\omega$ is decreased, namely, when $\omega$ is negative, updated $\omega$ is increased. – Therefore, the effect of L1 norm is to make the weight $\omega$ close to 0 ,and make more and more parameters in weight matrices become 0, which is equivalent to reducing the complexity of the network and preventing overfitting.</p>
+<p><img src="/images/2-L1R.png" alt></p>
+<p>Comparing with L2 Regularization, L1 is to make the parameters to 0 (the intersection point of L1 circle and contour line is on the coordinate axis $[0,\omega_2]$) and L2 is to make the parameters close to 0.</p>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><table><tr><td><a><img src="/images/2-orinet.png" width="432" height="253"></a></td><td><a><img src="/images/2-Dropout.png" width="432" height="253"></a></td></tr></table>
+
+<p>Dropout is another method to prevent overfitting. For example, if the left neural network is overfitting. With dropout, we go through each of the layers and set some probability of eliminating a node in neural network. We set $0.5$ chance of keeping the node and $0.5$ chance of removing, of course the probability can be different in different layers. Then we will get some node to be eliminated, we delete the ingoing lines and outgoing lines of the node, and we can get a much smaller, really much diminished network, as the right picture shows.</p>
+<p>The intuition is that <strong>The network cannot rely on any one features, so spread out weights.</strong> </p>
+<p>Dropout has the similar effect to L1 regularization.</p>
+
     </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/04/12/ResNet&DenseNet/" title="ResNet & DenseNet">
+                    <div class="nextTitle">ResNet & DenseNet</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/03/27/碎碎念/" title="一些想法">
+                    <div class="prevTitle">一些想法</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "NSjyzLH1Tpagwt9WJy9mTjak-gzGzoHsz",
+        appKey: "ud7gLUDDmxtfrI0rUEboicQe",
+        placeholder: "Do not be shy to chat here, guys.",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -450,6 +557,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-need-Regularization"><span class="toc-number">1.</span> <span class="toc-text">Why need Regularization?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L2-Regularization-Weight-Decay"><span class="toc-number">2.</span> <span class="toc-text">L2 Regularization (Weight Decay)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-L2-Regularization-Works"><span class="toc-number">3.</span> <span class="toc-text">How does L2 Regularization Works</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L1-Regularization"><span class="toc-number">4.</span> <span class="toc-text">L1 Regularization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dropout"><span class="toc-number">5.</span> <span class="toc-text">Dropout</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -556,38 +681,9 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 10
+        Total : 9
         </div>
         <!-- search  -->
         
@@ -597,20 +693,6 @@
     
     
     
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/12/YOLO&SSD/">YOLO & SSD Algorithms</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
@@ -632,12 +714,7 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/11</span><a class="archive-post-title" href="/2019/04/11/Regularization/">Regularization</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/02</span><a class="archive-post-title" href="/2019/04/02/Bayes/">Bayes Classifier</a>
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href="/2019/04/02/Regularization/">Regularization</a>
         </li>
     
     
@@ -648,6 +725,16 @@
     
         <li class="archive-post-item">
             <span class="archive-post-date">03/25</span><a class="archive-post-title" href="/2019/03/25/Summary-1/">Shallow Neural Network</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href="/2019/03/16/YOLO&SSD/">YOLO & SSD Algorithms</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href="/2019/03/10/1/">The First Blog to TEST</a>
         </li>
     
     
@@ -664,20 +751,6 @@
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/12/DerivationOfSVM/">Derivation of SVM</a>
         </li>
     
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/25</span><a class="archive-post-title" href="/2019/03/25/1/">The First Blog to TEST</a>
-        </li>
-    
     </ul></div>
   </div>
         <div class="sidebar-panel-tags">
@@ -689,9 +762,13 @@
     
         <span class="sidebar-tag-name" data-tags="Classifier"><span class="iconfont-archer">&#xe606;</span>Classifier</span>
     
-        <span class="sidebar-tag-name" data-tags="Bayes"><span class="iconfont-archer">&#xe606;</span>Bayes</span>
+        <span class="sidebar-tag-name" data-tags="SGD"><span class="iconfont-archer">&#xe606;</span>SGD</span>
     
-        <span class="sidebar-tag-name" data-tags="Naive Bayes"><span class="iconfont-archer">&#xe606;</span>Naive Bayes</span>
+        <span class="sidebar-tag-name" data-tags="Adam"><span class="iconfont-archer">&#xe606;</span>Adam</span>
+    
+        <span class="sidebar-tag-name" data-tags="Adagrad"><span class="iconfont-archer">&#xe606;</span>Adagrad</span>
+    
+        <span class="sidebar-tag-name" data-tags="Momentum"><span class="iconfont-archer">&#xe606;</span>Momentum</span>
     
         <span class="sidebar-tag-name" data-tags="RPN"><span class="iconfont-archer">&#xe606;</span>RPN</span>
     
@@ -701,27 +778,19 @@
     
         <span class="sidebar-tag-name" data-tags="Dropout"><span class="iconfont-archer">&#xe606;</span>Dropout</span>
     
-        <span class="sidebar-tag-name" data-tags="SGD"><span class="iconfont-archer">&#xe606;</span>SGD</span>
-    
-        <span class="sidebar-tag-name" data-tags="Adam"><span class="iconfont-archer">&#xe606;</span>Adam</span>
-    
-        <span class="sidebar-tag-name" data-tags="Adagrad"><span class="iconfont-archer">&#xe606;</span>Adagrad</span>
-    
-        <span class="sidebar-tag-name" data-tags="Momentum"><span class="iconfont-archer">&#xe606;</span>Momentum</span>
-    
         <span class="sidebar-tag-name" data-tags="ShortCut"><span class="iconfont-archer">&#xe606;</span>ShortCut</span>
-    
-        <span class="sidebar-tag-name" data-tags="YOLO"><span class="iconfont-archer">&#xe606;</span>YOLO</span>
-    
-        <span class="sidebar-tag-name" data-tags="SSD"><span class="iconfont-archer">&#xe606;</span>SSD</span>
-    
-        <span class="sidebar-tag-name" data-tags="DarkNet"><span class="iconfont-archer">&#xe606;</span>DarkNet</span>
     
         <span class="sidebar-tag-name" data-tags="Logit Regression"><span class="iconfont-archer">&#xe606;</span>Logit Regression</span>
     
         <span class="sidebar-tag-name" data-tags="Sigmoid"><span class="iconfont-archer">&#xe606;</span>Sigmoid</span>
     
         <span class="sidebar-tag-name" data-tags="cross-entropy"><span class="iconfont-archer">&#xe606;</span>cross-entropy</span>
+    
+        <span class="sidebar-tag-name" data-tags="YOLO"><span class="iconfont-archer">&#xe606;</span>YOLO</span>
+    
+        <span class="sidebar-tag-name" data-tags="SSD"><span class="iconfont-archer">&#xe606;</span>SSD</span>
+    
+        <span class="sidebar-tag-name" data-tags="DarkNet"><span class="iconfont-archer">&#xe606;</span>DarkNet</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -756,13 +825,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="Essay"><span class="iconfont-archer">&#xe60a;</span>Essay</span>
-    
         <span class="sidebar-category-name" data-categories="NeuralNetworks"><span class="iconfont-archer">&#xe60a;</span>NeuralNetworks</span>
     
-        <span class="sidebar-category-name" data-categories="Neural-Networks"><span class="iconfont-archer">&#xe60a;</span>Neural-Networks</span>
-    
-        <span class="sidebar-category-name" data-categories="Bayes"><span class="iconfont-archer">&#xe60a;</span>Bayes</span>
+        <span class="sidebar-category-name" data-categories="Essay"><span class="iconfont-archer">&#xe60a;</span>Essay</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -796,6 +861,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
