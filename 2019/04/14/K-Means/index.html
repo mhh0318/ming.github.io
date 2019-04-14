@@ -276,7 +276,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">367</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                        <span>Word count: <span class="post-count word-count">598</span>Reading time: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -411,7 +411,8 @@ height:50vh;
 <h2 id="Pseudocode"><a href="#Pseudocode" class="headerlink" title="Pseudocode:"></a>Pseudocode:</h2><hr>
 <p><strong>Input:</strong> Dataset $D = \lbrace x_1,x_2,…,x_m \rbrace$, Cluster Number $k$<br><strong><em>Program:</em></strong><br>Initialize $\mu$ by select $k$ data randomly from the dataset<br><strong><em>Repeat</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp; set $C_i = \oslash$<br>&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>for</em></strong> $j=1,2,…,m$ <strong><em>do</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Calculate the distance of sample $x_i$ and each average vector$\mu_i$;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; According to the smallest distance set the label of sample;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Append the sample into relevant cluster.<br>&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>end for</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>for</em></strong> $i=1,2,…,k$ <strong><em>do</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Calculate updated average vector $\mu$;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>if</em></strong> $\mu’_i \ne \mu_i$ <strong><em>then</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Update current $\mu_i$ as $\mu’_i$;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>else</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Keep the average vector;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>end if</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>end for</em></strong><br><strong><em>until</em></strong> No change in average vectors.<br><strong>Output</strong> Clusters $C = \lbrace C_1,C_2,…,C_k \rbrace$</p>
 <hr>
-<h2 id="Python-Code"><a href="#Python-Code" class="headerlink" title="Python Code"></a>Python Code</h2>
+<h2 id="Python-Code"><a href="#Python-Code" class="headerlink" title="Python Code"></a>Python Code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">dataSet = []</span><br><span class="line">fileIn = open(<span class="string">'./kmeans.txt'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fileIn.readlines():</span><br><span class="line">    lineARR = line.strip().split(<span class="string">'\t'</span>)</span><br><span class="line">    dataSet.append([float(lineARR[<span class="number">0</span>]),float(lineARR[<span class="number">1</span>])])</span><br><span class="line">dataSet = np.array(dataSet)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calDistance</span><span class="params">(data,centre)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> np.sqrt(sum(np.power(data-centre,<span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initCentroids</span><span class="params">(dataSet, k)</span>:</span></span><br><span class="line">    dataSet = list(dataSet)</span><br><span class="line">    <span class="keyword">return</span> random.sample(dataSet, k)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kmeans</span><span class="params">(dataset,k)</span>:</span></span><br><span class="line">    centroids = initCentroids(dataset,k)</span><br><span class="line">    Flag = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">while</span> Flag:</span><br><span class="line">        cluster = dict()</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(dataset.shape[<span class="number">0</span>]):</span><br><span class="line">            minDis = float(<span class="string">'inf'</span>)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">                coor = dataset[j]</span><br><span class="line">                distance = calDistance(coor,centroids[i])</span><br><span class="line">                <span class="keyword">if</span> distance &lt; minDis:</span><br><span class="line">                    minDis = distance</span><br><span class="line">                    index = i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> index <span class="keyword">not</span> <span class="keyword">in</span> cluster.keys():</span><br><span class="line">                cluster.setdefault(index,[])</span><br><span class="line">            cluster[index].append(coor)</span><br><span class="line">        mu = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> cluster.keys():</span><br><span class="line">            <span class="keyword">if</span> index <span class="keyword">not</span> <span class="keyword">in</span> cluster.keys():</span><br><span class="line">                cluster.setdefault(index,[])</span><br><span class="line">            mu[i] = np.mean(cluster[i],axis=<span class="number">0</span>)</span><br><span class="line">        last = centroids</span><br><span class="line">        centroids = []</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> mu.values():</span><br><span class="line">            centroids.append(_)</span><br><span class="line">        <span class="keyword">for</span> comp <span class="keyword">in</span> range(k):</span><br><span class="line">            <span class="keyword">if</span> (centroids[comp]== last[comp]).all():</span><br><span class="line">                Flag = <span class="literal">False</span></span><br><span class="line">        print(centroids)</span><br><span class="line">        print(last)</span><br><span class="line">    <span class="keyword">return</span> mu,cluster</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">showCluster</span><span class="params">(centroidList, clusterDict)</span>:</span></span><br><span class="line">    colorMark = [<span class="string">'or'</span>, <span class="string">'ob'</span>, <span class="string">'og'</span>, <span class="string">'ok'</span>, <span class="string">'oy'</span>, <span class="string">'ow'</span>]</span><br><span class="line">    centroidMark = [<span class="string">'dr'</span>, <span class="string">'db'</span>, <span class="string">'dg'</span>, <span class="string">'dk'</span>, <span class="string">'dy'</span>, <span class="string">'dw'</span>]</span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> clusterDict.keys():</span><br><span class="line">        plt.plot(centroidList[key][<span class="number">0</span>], centroidList[key][<span class="number">1</span>], centroidMark[key], markersize=<span class="number">12</span>)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> clusterDict[key]:</span><br><span class="line">            plt.plot(item[<span class="number">0</span>], item[<span class="number">1</span>], colorMark[key])</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">a,b = kmeans(dataSet,<span class="number">4</span>)</span><br><span class="line">showCluster(a,b)</span><br></pre></td></tr></table></figure>
+
     </article>
     <!-- license  -->
     
@@ -647,10 +648,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 8
@@ -712,17 +709,27 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="L1 and L2 norm"><span class="iconfont-archer">&#xe606;</span>L1 and L2 norm</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dropout"><span class="iconfont-archer">&#xe606;</span>Dropout</span>
+    
         <span class="sidebar-tag-name" data-tags="K-Means"><span class="iconfont-archer">&#xe606;</span>K-Means</span>
     
         <span class="sidebar-tag-name" data-tags="Unsupervised Learning"><span class="iconfont-archer">&#xe606;</span>Unsupervised Learning</span>
     
         <span class="sidebar-tag-name" data-tags="Cluster"><span class="iconfont-archer">&#xe606;</span>Cluster</span>
     
-        <span class="sidebar-tag-name" data-tags="L1 and L2 norm"><span class="iconfont-archer">&#xe606;</span>L1 and L2 norm</span>
+        <span class="sidebar-tag-name" data-tags="mini-Batch"><span class="iconfont-archer">&#xe606;</span>mini-Batch</span>
+    
+        <span class="sidebar-tag-name" data-tags="SGD"><span class="iconfont-archer">&#xe606;</span>SGD</span>
+    
+        <span class="sidebar-tag-name" data-tags="Adam"><span class="iconfont-archer">&#xe606;</span>Adam</span>
+    
+        <span class="sidebar-tag-name" data-tags="Adagrad"><span class="iconfont-archer">&#xe606;</span>Adagrad</span>
+    
+        <span class="sidebar-tag-name" data-tags="Momentum"><span class="iconfont-archer">&#xe606;</span>Momentum</span>
     
         <span class="sidebar-tag-name" data-tags="ShortCut"><span class="iconfont-archer">&#xe606;</span>ShortCut</span>
-    
-        <span class="sidebar-tag-name" data-tags="Dropout"><span class="iconfont-archer">&#xe606;</span>Dropout</span>
     
         <span class="sidebar-tag-name" data-tags="YOLO"><span class="iconfont-archer">&#xe606;</span>YOLO</span>
     
@@ -735,16 +742,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="Sigmoid"><span class="iconfont-archer">&#xe606;</span>Sigmoid</span>
     
         <span class="sidebar-tag-name" data-tags="cross-entropy"><span class="iconfont-archer">&#xe606;</span>cross-entropy</span>
-    
-        <span class="sidebar-tag-name" data-tags="mini-Batch"><span class="iconfont-archer">&#xe606;</span>mini-Batch</span>
-    
-        <span class="sidebar-tag-name" data-tags="SGD"><span class="iconfont-archer">&#xe606;</span>SGD</span>
-    
-        <span class="sidebar-tag-name" data-tags="Adam"><span class="iconfont-archer">&#xe606;</span>Adam</span>
-    
-        <span class="sidebar-tag-name" data-tags="Adagrad"><span class="iconfont-archer">&#xe606;</span>Adagrad</span>
-    
-        <span class="sidebar-tag-name" data-tags="Momentum"><span class="iconfont-archer">&#xe606;</span>Momentum</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -779,9 +776,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="NeuralNetworks"><span class="iconfont-archer">&#xe60a;</span>NeuralNetworks</span>
-    
         <span class="sidebar-category-name" data-categories="Essay"><span class="iconfont-archer">&#xe60a;</span>Essay</span>
+    
+        <span class="sidebar-category-name" data-categories="NeuralNetworks"><span class="iconfont-archer">&#xe60a;</span>NeuralNetworks</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -818,22 +815,7 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+    </body>
 </html>
 
 
