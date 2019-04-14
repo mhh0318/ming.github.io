@@ -411,7 +411,7 @@ height:50vh;
 <p>Then we have the logit regression model and we can use this model to define a cost function for training the weight $\omega$ and bias $b$ $$ \hat{y} = \sigma(\omega^Tx+b) $$</p>
 <h4 id="Loss-Function"><a href="#Loss-Function" class="headerlink" title="Loss Function"></a>Loss Function</h4><p>Given $ { (x^{(1)},y^{(1)}),…,(x^{(m)},y^{(m)}) } $, we want to get $\hat{y} \approx y$, so we want to have a function to show when the loss is minimum. </p>
 <p>Maybe <code>MSE</code> function is suitable? </p>
-<p>Nope, <code>MSE</code> might give us too many “minimum” value due to it can be non-convex function. Therefore, we introduce another method <code>cross-entropy</code> or <code>maximum likelyhood estimation</code> to get the loss : $$ H(x) = - y\log\hat{y} $$ and I have to say we do binary classification now thus we have $0,1$ two conditions. So let me introduce the cross-entropy loss function $$ \ell = - (y\log\hat{y} + (1-y)\log(1-\hat{y}) $$</p>
+<p>Nope, <code>MSE</code> might give us too many “minimum” value due to it can be non-convex function. Therefore, we introduce another method <code>cross-entropy</code> or <code>maximum likelyhood estimation</code> to get the loss : $$ H(x) = - y\log\hat{y} $$ and I have to say we do binary classification now thus we have $0,1$ two conditions. So let me introduce the cross-entropy loss function $$ \ell = - (y\log\hat{y} + (1-y)\log(1-\hat{y})) $$</p>
 <p>Here <code>cross entropy</code> have the same performance as <code>Maximum Likelyhood Estimation</code>, because <strong>the essence of Cross-Entropy is the maximun of likelyhood function in classification task</strong></p>
 <p>I will prove this cost function is corrcet in another mathematical way at the bottom of this post. </p>
 <h4 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h4><p>Loss Function is defined with respect to a single training example. It measures the performance on a single training example. And the cost function is defined to measure how well your entire training set. $$ J(w,b) = - \frac{1}{m} \sum_{i=1}^m \ell(y,\hat{y}) $$ $$ = - \frac{1}{m} \sum_{i=1}^m y^{(i)}\log\hat{y}^{(i)} + (1-y)^{(i)}\log(1-\hat{y})^{(i)} $$ </p>
@@ -680,9 +680,28 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 9
+        Total : 10
         </div>
         <!-- search  -->
         
@@ -693,8 +712,27 @@ top:50vh;
     
     
     
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/12/DerivationOfSVM/">Derivation of SVM</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href="/2019/04/14/Focal Loss/">Focal Loss</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -736,24 +774,12 @@ top:50vh;
             <span class="archive-post-date">03/10</span><a class="archive-post-title" href="/2019/03/10/1/">The First Blog to TEST</a>
         </li>
     
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/04/12/DerivationOfSVM/">Derivation of SVM</a>
-        </li>
-    
     </ul></div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Loss Function"><span class="iconfont-archer">&#xe606;</span>Loss Function</span>
     
         <span class="sidebar-tag-name" data-tags="SVM"><span class="iconfont-archer">&#xe606;</span>SVM</span>
     
@@ -761,23 +787,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Classifier"><span class="iconfont-archer">&#xe606;</span>Classifier</span>
     
-        <span class="sidebar-tag-name" data-tags="SGD"><span class="iconfont-archer">&#xe606;</span>SGD</span>
-    
-        <span class="sidebar-tag-name" data-tags="Adam"><span class="iconfont-archer">&#xe606;</span>Adam</span>
-    
-        <span class="sidebar-tag-name" data-tags="Adagrad"><span class="iconfont-archer">&#xe606;</span>Adagrad</span>
-    
-        <span class="sidebar-tag-name" data-tags="Momentum"><span class="iconfont-archer">&#xe606;</span>Momentum</span>
-    
-        <span class="sidebar-tag-name" data-tags="RPN"><span class="iconfont-archer">&#xe606;</span>RPN</span>
-    
-        <span class="sidebar-tag-name" data-tags="Anchor Box"><span class="iconfont-archer">&#xe606;</span>Anchor Box</span>
-    
         <span class="sidebar-tag-name" data-tags="L1 and L2 norm"><span class="iconfont-archer">&#xe606;</span>L1 and L2 norm</span>
     
         <span class="sidebar-tag-name" data-tags="Dropout"><span class="iconfont-archer">&#xe606;</span>Dropout</span>
     
-        <span class="sidebar-tag-name" data-tags="ShortCut"><span class="iconfont-archer">&#xe606;</span>ShortCut</span>
+        <span class="sidebar-tag-name" data-tags="RPN"><span class="iconfont-archer">&#xe606;</span>RPN</span>
+    
+        <span class="sidebar-tag-name" data-tags="Anchor Box"><span class="iconfont-archer">&#xe606;</span>Anchor Box</span>
     
         <span class="sidebar-tag-name" data-tags="Logit Regression"><span class="iconfont-archer">&#xe606;</span>Logit Regression</span>
     
@@ -790,6 +806,18 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="SSD"><span class="iconfont-archer">&#xe606;</span>SSD</span>
     
         <span class="sidebar-tag-name" data-tags="DarkNet"><span class="iconfont-archer">&#xe606;</span>DarkNet</span>
+    
+        <span class="sidebar-tag-name" data-tags="ShortCut"><span class="iconfont-archer">&#xe606;</span>ShortCut</span>
+    
+        <span class="sidebar-tag-name" data-tags="mini-Batch"><span class="iconfont-archer">&#xe606;</span>mini-Batch</span>
+    
+        <span class="sidebar-tag-name" data-tags="SGD"><span class="iconfont-archer">&#xe606;</span>SGD</span>
+    
+        <span class="sidebar-tag-name" data-tags="Adam"><span class="iconfont-archer">&#xe606;</span>Adam</span>
+    
+        <span class="sidebar-tag-name" data-tags="Adagrad"><span class="iconfont-archer">&#xe606;</span>Adagrad</span>
+    
+        <span class="sidebar-tag-name" data-tags="Momentum"><span class="iconfont-archer">&#xe606;</span>Momentum</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -824,9 +852,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="NeuralNetworks"><span class="iconfont-archer">&#xe60a;</span>NeuralNetworks</span>
-    
         <span class="sidebar-category-name" data-categories="Essay"><span class="iconfont-archer">&#xe60a;</span>Essay</span>
+    
+        <span class="sidebar-category-name" data-categories="NeuralNetworks"><span class="iconfont-archer">&#xe60a;</span>NeuralNetworks</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
