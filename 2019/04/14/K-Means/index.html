@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Regularization · 明 | Ming&#39;s Studio</title>
+    <title>K-Means Cluster | Python Implement · 明 | Ming&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/"> HomePage </a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Regularization</a>
+                <a href="#" class="post-name">K-Means Cluster | Python Implement</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Regularization
+            K-Means Cluster | Python Implement
             <!-- 404 -->
             
         </h1>
@@ -266,20 +266,22 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="L1 and L2 norm">L1 and L2 norm</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="K-Means">K-Means</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Dropout">Dropout</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Unsupervised Learning">Unsupervised Learning</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Cluster">Cluster</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">830</span>Reading time: <span class="post-count reading-time">5 min</span></span>
+                        <span>Word count: <span class="post-count word-count">367</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/04/02</span>
+                    <span class="post-intro-time">2019/04/14</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -403,31 +405,13 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="Why-need-Regularization"><a href="#Why-need-Regularization" class="headerlink" title="Why need Regularization?"></a>Why need Regularization?</h3><p>The main reason of regularization is to avoid overfitting. </p>
-<p><strong>Overfitting</strong> is a case that using too much parameters to make the model. For example, in the following picture, the green line represents an overfitted model and the black line represents a regularized model. </p>
-<p><img src="/images/2-1.png" alt></p>
-<p>Also, we can define a overfitting case by comparing the train set and dev set errors. If a model can give a accurate prediction of train set, we say the model has low <em>Bias</em>, namely, if the model give a accurate prediction of dev set, it has a low <em>Variance</em>. The case that have a low <em>bias</em> with a high <em>variance</em>, it can be defined as a <em>overfitting</em> model.</p>
-<p>Using <strong>Regularization</strong> can prevent <em>overfitting</em>. </p>
-<h3 id="L2-Regularization-Weight-Decay"><a href="#L2-Regularization-Weight-Decay" class="headerlink" title="L2 Regularization (Weight Decay)"></a>L2 Regularization (Weight Decay)</h3><p>Recall loss function $\ell$ of <em>Logit Regression</em> $ J(\omega,b) $, $\omega$ ans $b$ are the parameters of the loss function, and $\omega$ is a high-demisional vector$[m,1]$ while $b$ is a real number. To make the regularization, what we do is add a term, $$ J(regularization) = J(\omega,b) + \frac{\lambda}{2m} \left||\omega|\right|_2^2 $$</p>
-<p>The regulatization term can be expressed as :$$\left||\omega|\right|_2^2 = \sum_j^{n_x} w_j^2=\omega^T \omega $$ $\lambda$ here is called regularization parameter, it is used to trade off between the training set versus setting two normal parameters $\omega$ and $b$ as a small value.</p>
-<p><img src="/images/2-L2R.png" alt></p>
-<p>In a neural network, our loss function is $J(\omega^{[1]},b^{[1]},…,\omega^{[L]},b^{[L]})$, where $L$ is the number of layers. So the regularized loss function becomes $$J = J(\omega^{[1]},b^{[1]},…,\omega^{[L]},b^{[L]}) + \frac{\lambda}{2m} \sum_{\ell = 1}^L \left||\omega^{[\ell]}|\right|_F^2$$ and the regularized term called <em>Frobenius Norm</em> $$\left||\omega^{[\ell]}|\right|_F^2 = \sum_i^{n^{[\ell]}} \sum_j^{n^{[\ell-1]}} (\omega_{ij}^{[\ell]})^2$$ and the size of $\omega^{[\ell]}$ is $(n^{[\ell-1]},n^{[\ell]})$. </p>
-<p>From the calculate of backprop, we can get $dW^{[L]}$ and update $W^{[L]} = W^{[L]} - \alpha dW^{[L]}$ by gradient decent. After regulazition, we compute the backprop again, $$ dw^{[\ell]} = (original\ backprop) + \frac{\lambda}{m} w^{[\ell]} $$ and the update $$ w^{[\ell]} = w^{[\ell]} - \alpha [(orininal\ backprop) + \frac{\lambda}{m} w^{[\ell]}] = w^{[\ell]} (1-\frac{\alpha \lambda}{m}) - \alpha(original\ backprop) $$ </p>
-<p>After iteration, the weight $w^{[\ell]}$ becomes more and more small.</p>
-<h3 id="How-does-L2-Regularization-Works"><a href="#How-does-L2-Regularization-Works" class="headerlink" title="How does L2 Regularization Works"></a>How does L2 Regularization Works</h3><p>We did for regularization is add the extra term $\frac{\lambda}{2m} \sum_{\ell = 1}^L \left||\omega^{[\ell]}|\right|_F^2$ that penalizes the weight matrices from being too large. If we set the parameter $\lambda$ large enough, the weight matrics $w^{[\ell]} \approx 0$. So one intuition is to set some weight of hidden layers to zero, if that is the case, it simplify the complex network to a smaller neural network, deep but simple, and it bring the network from high various to high bias. </p>
-<p>Another case is that in activation fuction, such as <code>tanh</code> , </p>
-<p><img src="/images/tanh.png" alt></p>
-<p>With the increasing of $\lambda$, the weight $\omega ^{[\ell]}$ decreases, and the output $Z=w^{[\ell]}a^{[\ell-1]}+b{[\ell]}$,  as the image shows, the range of $g(Z)$ falls in linear area(red line), thus every layer is almost linear, and the whole network is almost linear, so there is not much overfitting.</p>
-<h3 id="L1-Regularization"><a href="#L1-Regularization" class="headerlink" title="L1 Regularization"></a>L1 Regularization</h3><p>L1 Regularization is just change the add term from L2 norm to L1 norm. The term of L1 norm is $$ \frac{\lambda}{n} \left||\omega|\right|_1 = \frac{\lambda}{n} \sum_j^{n_x} |\omega_j| $$ Then we calculate its derivative, $$ d\omega = (ori\ backprop) + \frac{\lambda}{n} sgn(\omega) $$ and the update weight become $$\omega = \omega - \frac{\alpha \lambda}{n} sgn(\omega) - \alpha(ori\ backprop)$$</p>
-<p>When $\omega$ is positive, updated $\omega$ is decreased, namely, when $\omega$ is negative, updated $\omega$ is increased. – Therefore, the effect of L1 norm is to make the weight $\omega$ close to 0 ,and make more and more parameters in weight matrices become 0, which is equivalent to reducing the complexity of the network and preventing overfitting.</p>
-<p><img src="/images/2-L1R.png" alt></p>
-<p>Comparing with L2 Regularization, L1 is to make the parameters to 0 (the intersection point of L1 circle and contour line is on the coordinate axis $[0,\omega_2]$) and L2 is to make the parameters close to 0.</p>
-<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><table><tr><td><a><img src="/images/2-orinet.png" width="432" height="253"></a></td><td><a><img src="/images/2-Dropout.png" width="432" height="253"></a></td></tr></table>
-
-<p>Dropout is another method to prevent overfitting. For example, if the left neural network is overfitting. With dropout, we go through each of the layers and set some probability of eliminating a node in neural network. We set $0.5$ chance of keeping the node and $0.5$ chance of removing, of course the probability can be different in different layers. Then we will get some node to be eliminated, we delete the ingoing lines and outgoing lines of the node, and we can get a much smaller, really much diminished network, as the right picture shows.</p>
-<p>The intuition is that <strong>The network cannot rely on any one features, so spread out weights.</strong> </p>
-<p>Dropout has the similar effect to L1 regularization.</p>
-
+        <h2 id="Algorithms"><a href="#Algorithms" class="headerlink" title="Algorithms"></a>Algorithms</h2><p>K-Means Cluster is a kind of prototype-based cluster. Its basic idea is to find a division scheme for k clusters by iteration, so that the total error obtained when the mean value of these k clusters is used to represent the corresponding various samples is the minimum.</p>
+<p>For a given dataset $D = \lbrace x_1,x_2,…,x_m \rbrace$, and the cost function of k-Means Cluster $C = \lbrace C_1,C_2,…,C_k \rbrace$ is based on minimum sum of squares errors. $$ E = \sum^k_{i=1} \sum_{x \in C_i} \left||x-\mu_i|\right|_2^2$$ is based on minimum sum of squares errors. where $\mu_i = \frac{1}{C_i} \sum_{x \in C_i} x$, $\mu$ is the average vector of $C_i$. The smaller the error is, the higher the sample similarity of a cluster will be.</p>
+<p>Minimization the cost is a NP-hard problem, the common algorithm to find approximate solution is an iterative refinement technique with Greedy Strategy.</p>
+<h2 id="Pseudocode"><a href="#Pseudocode" class="headerlink" title="Pseudocode:"></a>Pseudocode:</h2><hr>
+<p><strong>Input:</strong> Dataset $D = \lbrace x_1,x_2,…,x_m \rbrace$, Cluster Number $k$<br><strong><em>Program:</em></strong><br>Initialize $\mu$ by select $k$ data randomly from the dataset<br><strong><em>Repeat</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp; set $C_i = \oslash$<br>&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>for</em></strong> $j=1,2,…,m$ <strong><em>do</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Calculate the distance of sample $x_i$ and each average vector$\mu_i$;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; According to the smallest distance set the label of sample;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Append the sample into relevant cluster.<br>&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>end for</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>for</em></strong> $i=1,2,…,k$ <strong><em>do</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Calculate updated average vector $\mu$;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>if</em></strong> $\mu’_i \ne \mu_i$ <strong><em>then</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Update current $\mu_i$ as $\mu’_i$;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>else</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Keep the average vector;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>end if</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>end for</em></strong><br><strong><em>until</em></strong> No change in average vectors.<br><strong>Output</strong> Clusters $C = \lbrace C_1,C_2,…,C_k \rbrace$</p>
+<hr>
+<h2 id="Python-Code"><a href="#Python-Code" class="headerlink" title="Python Code"></a>Python Code</h2>
     </article>
     <!-- license  -->
     
@@ -435,17 +419,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/04/12/ResNet&DenseNet/" title="ResNet & DenseNet">
-                    <div class="nextTitle">ResNet & DenseNet</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/03/27/碎碎念/" title="一些想法">
-                    <div class="prevTitle">一些想法</div>
+                <a href="/2019/04/12/Optimizer/" title="Optimizers">
+                    <div class="prevTitle">Optimizers</div>
                 </a>
             
         </li>
@@ -573,7 +552,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-need-Regularization"><span class="toc-number">1.</span> <span class="toc-text">Why need Regularization?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L2-Regularization-Weight-Decay"><span class="toc-number">2.</span> <span class="toc-text">L2 Regularization (Weight Decay)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-L2-Regularization-Works"><span class="toc-number">3.</span> <span class="toc-text">How does L2 Regularization Works</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L1-Regularization"><span class="toc-number">4.</span> <span class="toc-text">L1 Regularization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dropout"><span class="toc-number">5.</span> <span class="toc-text">Dropout</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Algorithms"><span class="toc-number">1.</span> <span class="toc-text">Algorithms</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pseudocode"><span class="toc-number">2.</span> <span class="toc-text">Pseudocode:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Code"><span class="toc-number">3.</span> <span class="toc-text">Python Code</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
