@@ -10,18 +10,18 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
     <meta name="author" content="M&">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="M&">
     
     <meta name="keywords" content="明|MING's Studio,M&">
     
-    <meta name="description" content>
+    <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>Regularization · 明 | Ming&#39;s Studio</title>
     <style type="text/css">
     @font-face {
@@ -75,10 +75,10 @@
 
 </style>
 
-    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -187,10 +187,10 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href="/assets/favicon.ico">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
@@ -200,7 +200,9 @@
     
     <!-- 谷歌统计  -->
     
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
 
     
         <body class="post-body">
@@ -214,14 +216,14 @@
     
     <div class="banner">
             <div class="blog-title">
-                <a href="/"> HomePage </a>
+                <a href="/" > HomePage </a>
             </div>
             <div class="post-title">
                 <a href="#" class="post-name">Regularization</a>
             </div>
     </div>
     
-    <a class="home-link" href="/"> Home Page </a>
+    <a class="home-link" href=/> Home Page </a>
 </header>
     <div class="wrapper">
         <div class="site-intro" style="
@@ -264,11 +266,11 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class="post-intro-tags">
+                    <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="L1 and L2 norm">L1 and L2 norm</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "L1 and L2 norm">L1 and L2 norm</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Dropout">Dropout</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Dropout">Dropout</a>
     
 </div>
                 
@@ -405,22 +407,22 @@ height:50vh;
     <article class="article-entry">
         <h3 id="Why-need-Regularization"><a href="#Why-need-Regularization" class="headerlink" title="Why need Regularization?"></a>Why need Regularization?</h3><p>The main reason of regularization is to avoid overfitting. </p>
 <p><strong>Overfitting</strong> is a case that using too much parameters to make the model. For example, in the following picture, the green line represents an overfitted model and the black line represents a regularized model. </p>
-<p><img src="/images/2-1.png" alt></p>
+<p><img src="/images/2-1.png"></p>
 <p>Also, we can define a overfitting case by comparing the train set and dev set errors. If a model can give a accurate prediction of train set, we say the model has low <em>Bias</em>, namely, if the model give a accurate prediction of dev set, it has a low <em>Variance</em>. The case that have a low <em>bias</em> with a high <em>variance</em>, it can be defined as a <em>overfitting</em> model.</p>
 <p>Using <strong>Regularization</strong> can prevent <em>overfitting</em>. </p>
 <h3 id="L2-Regularization-Weight-Decay"><a href="#L2-Regularization-Weight-Decay" class="headerlink" title="L2 Regularization (Weight Decay)"></a>L2 Regularization (Weight Decay)</h3><p>Recall loss function $\ell$ of <em>Logit Regression</em> $ J(\omega,b) $, $\omega$ ans $b$ are the parameters of the loss function, and $\omega$ is a high-demisional vector$[m,1]$ while $b$ is a real number. To make the regularization, what we do is add a term, $$ J(regularization) = J(\omega,b) + \frac{\lambda}{2m} \left||\omega|\right|_2^2 $$</p>
 <p>The regulatization term can be expressed as :$$\left||\omega|\right|_2^2 = \sum_j^{n_x} w_j^2=\omega^T \omega $$ $\lambda$ here is called regularization parameter, it is used to trade off between the training set versus setting two normal parameters $\omega$ and $b$ as a small value.</p>
-<p><img src="/images/2-L2R.png" alt></p>
-<p>In a neural network, our loss function is $J(\omega^{[1]},b^{[1]},…,\omega^{[L]},b^{[L]})$, where $L$ is the number of layers. So the regularized loss function becomes $$J = J(\omega^{[1]},b^{[1]},…,\omega^{[L]},b^{[L]}) + \frac{\lambda}{2m} \sum_{\ell = 1}^L \left||\omega^{[\ell]}|\right|_F^2$$ and the regularized term called <em>Frobenius Norm</em> $$\left||\omega^{[\ell]}|\right|_F^2 = \sum_i^{n^{[\ell]}} \sum_j^{n^{[\ell-1]}} (\omega_{ij}^{[\ell]})^2$$ and the size of $\omega^{[\ell]}$ is $(n^{[\ell-1]},n^{[\ell]})$. </p>
+<p><img src="/images/2-L2R.png"></p>
+<p>In a neural network, our loss function is $J(\omega^{[1]},b^{[1]},…,\omega^{[L]},b^{[L]})$, where $L$ is the number of layers. So the regularized loss function becomes $$J = J(\omega^{[1]},b^{[1]},…,\omega^{[L]},b^{[L]}) + \frac{\lambda}{2m} \sum_{\ell = 1}^L \left||\omega^{[\ell]}|\right|_F^2$$ and the regularized term called <em>Frobenius Norm</em> $$\left||\omega^{[\ell]}|\right|<em>F^2 = \sum_i^{n^{[\ell]}} \sum_j^{n^{[\ell-1]}} (\omega</em>{ij}^{[\ell]})^2$$ and the size of $\omega^{[\ell]}$ is $(n^{[\ell-1]},n^{[\ell]})$. </p>
 <p>From the calculate of backprop, we can get $dW^{[L]}$ and update $W^{[L]} = W^{[L]} - \alpha dW^{[L]}$ by gradient decent. After regulazition, we compute the backprop again, $$ dw^{[\ell]} = (original\ backprop) + \frac{\lambda}{m} w^{[\ell]} $$ and the update $$ w^{[\ell]} = w^{[\ell]} - \alpha [(orininal\ backprop) + \frac{\lambda}{m} w^{[\ell]}] = w^{[\ell]} (1-\frac{\alpha \lambda}{m}) - \alpha(original\ backprop) $$ </p>
 <p>After iteration, the weight $w^{[\ell]}$ becomes more and more small.</p>
 <h3 id="How-does-L2-Regularization-Works"><a href="#How-does-L2-Regularization-Works" class="headerlink" title="How does L2 Regularization Works"></a>How does L2 Regularization Works</h3><p>We did for regularization is add the extra term $\frac{\lambda}{2m} \sum_{\ell = 1}^L \left||\omega^{[\ell]}|\right|_F^2$ that penalizes the weight matrices from being too large. If we set the parameter $\lambda$ large enough, the weight matrics $w^{[\ell]} \approx 0$. So one intuition is to set some weight of hidden layers to zero, if that is the case, it simplify the complex network to a smaller neural network, deep but simple, and it bring the network from high various to high bias. </p>
 <p>Another case is that in activation fuction, such as <code>tanh</code> , </p>
-<p><img src="/images/tanh.png" alt></p>
+<p><img src="/images/tanh.png"></p>
 <p>With the increasing of $\lambda$, the weight $\omega ^{[\ell]}$ decreases, and the output $Z=w^{[\ell]}a^{[\ell-1]}+b{[\ell]}$,  as the image shows, the range of $g(Z)$ falls in linear area(red line), thus every layer is almost linear, and the whole network is almost linear, so there is not much overfitting.</p>
 <h3 id="L1-Regularization"><a href="#L1-Regularization" class="headerlink" title="L1 Regularization"></a>L1 Regularization</h3><p>L1 Regularization is just change the add term from L2 norm to L1 norm. The term of L1 norm is $$ \frac{\lambda}{n} \left||\omega|\right|_1 = \frac{\lambda}{n} \sum_j^{n_x} |\omega_j| $$ Then we calculate its derivative, $$ d\omega = (ori\ backprop) + \frac{\lambda}{n} sgn(\omega) $$ and the update weight become $$\omega = \omega - \frac{\alpha \lambda}{n} sgn(\omega) - \alpha(ori\ backprop)$$</p>
 <p>When $\omega$ is positive, updated $\omega$ is decreased, namely, when $\omega$ is negative, updated $\omega$ is increased. – Therefore, the effect of L1 norm is to make the weight $\omega$ close to 0 ,and make more and more parameters in weight matrices become 0, which is equivalent to reducing the complexity of the network and preventing overfitting.</p>
-<p><img src="/images/2-L1R.png" alt></p>
+<p><img src="/images/2-L1R.png"></p>
 <p>Comparing with L2 Regularization, L1 is to make the parameters to 0 (the intersection point of L1 circle and contour line is on the coordinate axis $[0,\omega_2]$) and L2 is to make the parameters close to 0.</p>
 <h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><table><tr><td><a><img src="/images/2-orinet.png" width="432" height="253"></a></td><td><a><img src="/images/2-Dropout.png" width="432" height="253"></a></td></tr></table>
 
@@ -436,7 +438,7 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2019/04/12/Optimizer/" title="Optimizers">
+                <a href= "/2019/04/12/Optimizer/" title= "Optimizers">
                     <div class="nextTitle">Optimizers</div>
                 </a>
             
@@ -444,7 +446,7 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/03/25/Summary-1/" title="Shallow Neural Network">
+                <a href= "/2019/03/25/Summary-1/" title= "Shallow Neural Network">
                     <div class="prevTitle">Shallow Neural Network</div>
                 </a>
             
@@ -463,7 +465,7 @@ height:50vh;
     
     
     <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <div id="comment"></div>
     <script>
     new Valine({
@@ -492,13 +494,13 @@ height:50vh;
     
         
             
-                <a href="mailto:mercihu0318@gmail.com" class="iconfont-archer email" title="email"></a>
+                <a href="mailto:mercihu0318@gmail.com" class="iconfont-archer email" title=email ></a>
             
         
     
         
             
-                <a href="//github.com/mhh0318" class="iconfont-archer github" target="_blank" title="github"></a>
+                <a href="//github.com/mhh0318" class="iconfont-archer github" target="_blank" title=github></a>
             
         
     
@@ -544,7 +546,7 @@ height:50vh;
     <!-- powered by Hexo  -->
     <div class="copyright">
         <span id="hexo-power">A Rookie in <a target="_blank"> Machine Learning </a>
-    </span></div>
+    </div>
     <!-- 不蒜子  -->
     
     <div class="busuanzi-container">
@@ -631,6 +633,8 @@ top:50vh;
     
     
     
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 5
@@ -649,7 +653,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/26</span><a class="archive-post-title" href="/2021/01/26/Dall.E/">DALL·E</a>
+            <span class="archive-post-date">01/26</span><a class="archive-post-title" href= "/2021/01/26/Dall.E/" >DALL·E</a>
         </li>
     
     
@@ -663,25 +667,25 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/Optimizer/">Optimizers</a>
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href= "/2019/04/12/Optimizer/" >Optimizers</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/02</span><a class="archive-post-title" href="/2019/04/02/Regularization/">Regularization</a>
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2019/04/02/Regularization/" >Regularization</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/25</span><a class="archive-post-title" href="/2019/03/25/Summary-1/">Shallow Neural Network</a>
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2019/03/25/Summary-1/" >Shallow Neural Network</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/10</span><a class="archive-post-title" href="/2019/03/10/1/">The First Blog to TEST</a>
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2019/03/10/1/" >The First Blog to TEST</a>
         </li>
     
-    </ul></div>
+    </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
@@ -691,6 +695,10 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="Sigmoid"><span class="iconfont-archer">&#xe606;</span>Sigmoid</span>
     
         <span class="sidebar-tag-name" data-tags="cross-entropy"><span class="iconfont-archer">&#xe606;</span>cross-entropy</span>
+    
+        <span class="sidebar-tag-name" data-tags="L1 and L2 norm"><span class="iconfont-archer">&#xe606;</span>L1 and L2 norm</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dropout"><span class="iconfont-archer">&#xe606;</span>Dropout</span>
     
         <span class="sidebar-tag-name" data-tags="mini-Batch"><span class="iconfont-archer">&#xe606;</span>mini-Batch</span>
     
@@ -702,17 +710,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Momentum"><span class="iconfont-archer">&#xe606;</span>Momentum</span>
     
-        <span class="sidebar-tag-name" data-tags="L1 and L2 norm"><span class="iconfont-archer">&#xe606;</span>L1 and L2 norm</span>
-    
-        <span class="sidebar-tag-name" data-tags="Dropout"><span class="iconfont-archer">&#xe606;</span>Dropout</span>
-    
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br>
-    1、请确保node版本大于6.2<br>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
     3、在根目录_config.yml里添加配置：
     <pre style="color: #787878; font-size: 0.6rem;">
 jsonContent:
@@ -739,9 +743,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="Essay"><span class="iconfont-archer">&#xe60a;</span>Essay</span>
-    
         <span class="sidebar-category-name" data-categories="NeuralNetworks"><span class="iconfont-archer">&#xe60a;</span>NeuralNetworks</span>
+    
+        <span class="sidebar-category-name" data-categories="Essay"><span class="iconfont-archer">&#xe60a;</span>Essay</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -778,7 +782,22 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 </html>
 
 

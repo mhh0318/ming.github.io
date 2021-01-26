@@ -10,18 +10,18 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
     <meta name="author" content="M&">
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="M&">
     
     <meta name="keywords" content="明|MING's Studio,M&">
     
-    <meta name="description" content>
+    <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>Optimizers · 明 | Ming&#39;s Studio</title>
     <style type="text/css">
     @font-face {
@@ -75,10 +75,10 @@
 
 </style>
 
-    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -187,10 +187,10 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href="/assets/favicon.ico">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
@@ -200,7 +200,9 @@
     
     <!-- 谷歌统计  -->
     
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
 
     
         <body class="post-body">
@@ -214,14 +216,14 @@
     
     <div class="banner">
             <div class="blog-title">
-                <a href="/"> HomePage </a>
+                <a href="/" > HomePage </a>
             </div>
             <div class="post-title">
                 <a href="#" class="post-name">Optimizers</a>
             </div>
     </div>
     
-    <a class="home-link" href="/"> Home Page </a>
+    <a class="home-link" href=/> Home Page </a>
 </header>
     <div class="wrapper">
         <div class="site-intro" style="
@@ -264,17 +266,17 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class="post-intro-tags">
+                    <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="mini-Batch">mini-Batch</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "mini-Batch">mini-Batch</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="SGD">SGD</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "SGD">SGD</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Adam">Adam</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Adam">Adam</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Adagrad">Adagrad</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Adagrad">Adagrad</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Momentum">Momentum</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Momentum">Momentum</a>
     
 </div>
                 
@@ -410,16 +412,16 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <p>In iteration process, it is expensive to compute the smallest value of cost function by gradient descent. The optimizers are some optimization algorithms of gradient descent. </p>
-<h1 id="Vanilla-Gradient-Descent"><a href="#Vanilla-Gradient-Descent" class="headerlink" title="Vanilla Gradient Descent"></a>Vanilla Gradient Descent</h1><h2 id="Batch-Gradient-Descent"><a href="#Batch-Gradient-Descent" class="headerlink" title="Batch Gradient Descent"></a>Batch Gradient Descent</h2><p>In my previous post <a href="http://mhugh.top/2019/03/25/Summary-1/" target="_blank" rel="noopener">Shallow Neural Network</a>, after we find the cost function, the method we use to update the parameters and get the cost is batch gradient descent. It computes the gradient with the entire dataset, it can be expressed as $$ \theta = \theta  - \alpha \frac{dJ(\theta)}{d\theta}$$ </p>
+<h1 id="Vanilla-Gradient-Descent"><a href="#Vanilla-Gradient-Descent" class="headerlink" title="Vanilla Gradient Descent"></a>Vanilla Gradient Descent</h1><h2 id="Batch-Gradient-Descent"><a href="#Batch-Gradient-Descent" class="headerlink" title="Batch Gradient Descent"></a>Batch Gradient Descent</h2><p>In my previous post <a target="_blank" rel="noopener" href="http://mhugh.top/2019/03/25/Summary-1/">Shallow Neural Network</a>, after we find the cost function, the method we use to update the parameters and get the cost is batch gradient descent. It computes the gradient with the entire dataset, it can be expressed as $$ \theta = \theta  - \alpha \frac{dJ(\theta)}{d\theta}$$ </p>
 <p>This method will gradually converge to global minimum for a convex error function or to a local minimum for non-convex error function. It is stable, but too slow, especially to a big dataset.</p>
 <h2 id="Stochastic-Gradient-Descent"><a href="#Stochastic-Gradient-Descent" class="headerlink" title="Stochastic Gradient Descent"></a>Stochastic Gradient Descent</h2><p>If BGD is too slow, how about change the batch size? Firstly we can try to set the batch size to a extreme condition as $1$, and the Batch Gradient Descent becomes Stochastic Gradient Descent: $$ \theta = \theta - \alpha \frac{dJ(\theta^{[i]})}{d\theta^{[i]}} $$</p>
 <p>The method becomes fast, but it has a high virance. SGD is fluctuation, as the pictures shows</p>
-<p><img src="/images/3-SGD.png" alt></p>
+<p><img src="/images/3-SGD.png"></p>
 <p>It will “jump” to the minimum, and keep oscillating around the minimum point. Here is an illustration of BGD adn SGD:</p>
-<p><img src="/images/3-sgd_gd.png" alt></p>
+<p><img src="/images/3-sgd_gd.png"></p>
 <h2 id="mini-Batch-Gradient-Descent"><a href="#mini-Batch-Gradient-Descent" class="headerlink" title="mini-Batch Gradient Descent"></a>mini-Batch Gradient Descent</h2><p>If we set the batch size to a intermediate number of example, it becomes mini-Batch Gradient Descent: $$ \theta = \theta - \alpha \frac{dJ(\theta^{[i:i+n]})}{d\theta^{[i:i+n]}} $$ where $n$ is the batch size.</p>
 <p>This way can reduce the variance of parameter updates, which can make the converge more stable. And it also keep the Pros of SGD - speed. Here, $n$, the batch size is a hyperparameter, common sizes are the power of 2 and in range $[64,256]$  </p>
-<p><img src="/images/3-sgd_bgd.png" alt></p>
+<p><img src="/images/3-sgd_bgd.png"></p>
 <h2 id="Summary-of-Vanilla-Gradient-Descent"><a href="#Summary-of-Vanilla-Gradient-Descent" class="headerlink" title="Summary of Vanilla Gradient Descent"></a>Summary of Vanilla Gradient Descent</h2><table>
 <thead>
 <tr>
@@ -429,8 +431,7 @@ height:50vh;
 <th><em>Memory Usage</em></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>Batch</strong> gradient Descent</td>
 <td>Good</td>
 <td>Slow</td>
@@ -448,17 +449,16 @@ height:50vh;
 <td>Medium</td>
 <td>Medium</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="Optimization-Algorithms"><a href="#Optimization-Algorithms" class="headerlink" title="Optimization Algorithms"></a>Optimization Algorithms</h1><h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><p>Momentum is a method that helps accelerate SGD in the relevant direction and dampens oscillations. Momentum takes into account the past gradients to smooth out the update. We will store the ‘direction’ of the previous gradients in the variable $v$. Formally, this will be the exponentially weighted average of the gradient on previous steps. You can also think of $v$ as the “velocity” of a ball rolling downhill, building up speed (and momentum) according to the direction of the gradient/slope of the hill.<br>$$ v_{d\theta} = \beta v_{d(\theta-1)} + (1-\beta) \frac{dJ(\theta)}{\theta} $$$$ \theta = \theta - \alpha v_{d\theta} $$<br>where $\alpha$ is the learning rate and $\beta$ is another hyperparameter, which is usually set to $0.9$</p>
-<p><img src="/images/3-Momentum.png" alt></p>
+<p><img src="/images/3-Momentum.png"></p>
 <p>The momentum term increases for dimensions whose gradients point in the same directions and reduces updates for dimensions whose gradients change directions. As a result, we gain faster convergence and reduced oscillation.</p>
 <h2 id="Nesterov-accelerated-gradient"><a href="#Nesterov-accelerated-gradient" class="headerlink" title="Nesterov accelerated gradient"></a>Nesterov accelerated gradient</h2><p>We’d like to have a smarter $\theta$ which has a notion where it is going so it will decrease when deviation from the target. </p>
 <p>$$ v_{d\theta} = \beta v_{d(\theta-1)} + (1-\beta) \frac{dJ(\theta - \beta v_{d(\theta-1)})}{\theta} $$$$ \theta = \theta - \alpha v_{d\theta} $$</p>
 <p>It looks like the $\theta$ can predict the gradient of next time and tune according to the goal. Here is an image can explain the the process of NAG:</p>
-<p><img src="/images/3-nag.png" alt></p>
+<p><img src="/images/3-nag.png"></p>
 <p>While Momentum first computes the current gradient (small blue vector) and then takes a big jump in the direction of the updated accumulated gradient (big blue vector), NAG first makes a big jump in the direction of the previous accumulated gradient (brown vector), measures the gradient and then makes a correction (red vector), which results in the complete NAG update (green vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks</p>
-<p>And here is another explaination about NAG <a href="https://zhuanlan.zhihu.com/p/22810533" target="_blank" rel="noopener">比Momentum更快：揭开Nesterov Accelerated Gradient的真面目</a></p>
+<p>And here is another explaination about NAG <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22810533">比Momentum更快：揭开Nesterov Accelerated Gradient的真面目</a></p>
 <h2 id="Adagrad"><a href="#Adagrad" class="headerlink" title="Adagrad"></a>Adagrad</h2><p>Adagrad is an algorithm that adapts the learning rate to the parameters. For those high frequency parameters, decrease the learning rate, and for those infrequent parameters, increase the learning rate. Previously, we performed an update for all parameters $\theta$ at once as every parameter $\theta_i$ used the same learning rate $\alpha$. </p>
 <p>Adagrad modify the learning rate $\alpha$ based on the past gradients that have been computed. $$ \theta = \theta - \frac{\alpha}{\sqrt{G_t+\epsilon}} \frac{dJ(\theta)}{d\theta} $$ where $G_t$ is a diagonal matrix where each diagonal element is the sum of the squares of the past gradients, while $\epsilon$ is a smoothing term avoiding the denominator is $0$, usually set to $1e-8$. </p>
 <p>Adagrad is well-suited for dealing with sparse data and improve the robustness of SGD. But the learning rate will be infinitesimally small after enough itertions.</p>
@@ -470,7 +470,8 @@ height:50vh;
 <p>All of the parameters are intiallized as $0$. Thus at the first several iteration, $v$ and $s$ are bias to $0$, especially when $\beta_1$ and $\beta_2$ are close to $1$. So after bias correction, we can get $$ v^{corrected} = \frac{v}{1-{\beta_1}^T}$$ $$s^{corrected} = \frac{s}{1-{\beta_2}^T}$$</p>
 <p>They then use these to update the parameters just as we have seen in Momentum and RMSprop, which yields the Adam update rule: $$\theta = \theta - \alpha \frac{ v^{corrected}}{\sqrt{s^{corrected}}+\epsilon}$$</p>
 <h2 id="AMSGrad"><a href="#AMSGrad" class="headerlink" title="AMSGrad"></a>AMSGrad</h2><blockquote><p>Following AMSGrad content is referring to </p>
-<footer><strong>Sebastian Ruder</strong><cite><a href="http://ruder.io/optimizing-gradient-descent/index.html#fnref19" target="_blank" rel="noopener">An overview of gradient descent optimization algorithms</a></cite></footer></blockquote>
+<footer><strong>Sebastian Ruder</strong><cite><a target="_blank" rel="noopener" href="http://ruder.io/optimizing-gradient-descent/index.html#fnref19">An overview of gradient descent optimization algorithms</a></cite></footer></blockquote>
+
 <p>As adaptive learning rate methods have become the norm in training neural networks, practitioners noticed that in some cases, e.g. for object recognition or machine translation they fail to converge to an optimal solution and are outperformed by SGD with momentum.</p>
 <p>Reddi et al. (2018) formalize this issue and pinpoint the exponential moving average of past squared gradients as a reason for the poor generalization behaviour of adaptive learning rate methods. Recall that the introduction of the exponential average was well-motivated: It should prevent the learning rates to become infinitesimally small as training progresses, the key flaw of the Adagrad algorithm. However, this short-term memory of the gradients becomes an obstacle in other scenarios.</p>
 <p>In settings where Adam converges to a suboptimal solution, it has been observed that some minibatches provide large and informative gradients, but as these minibatches only occur rarely, exponential averaging diminishes their influence, which leads to poor convergence. The authors provide an example for a simple convex optimization problem where the same behaviour can be observed for Adam.</p>
@@ -482,8 +483,7 @@ height:50vh;
 <th><em>Update Equation</em></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>SGD</td>
 <td>$$\Delta \theta_t = - \alpha g_t$$</td>
 </tr>
@@ -515,17 +515,20 @@ height:50vh;
 <td>AMSGrad</td>
 <td>$$\Delta \theta = - \alpha \frac{v}{\sqrt{\hat{s_t}}+\epsilon}$$</td>
 </tr>
-</tbody>
-</table>
-<p>where $g_t = \nabla J(\theta_t)$ and $\theta_t = \theta_t + \Delta \theta_t$</p>
+<tr>
+<td>where $g_t = \nabla J(\theta_t)$ and $\theta_t = \theta_t + \Delta \theta_t$</td>
+<td></td>
+</tr>
+</tbody></table>
 <h2 id="Visualization-of-Algorithms"><a href="#Visualization-of-Algorithms" class="headerlink" title="Visualization of Algorithms"></a>Visualization of Algorithms</h2><blockquote><p>The visualization of algorithms refers to </p>
-<footer><strong>Louis Tiao</strong><cite><a href="http://louistiao.me/notes/visualizing-and-animating-optimization-algorithms-with-matplotlib/" target="_blank" rel="noopener">Visualizing and Animating Optimization Algorithms with Matplotlib</a></cite></footer></blockquote>
-<table><tr><td><a><img src="/images/3-opt1.gif"></a></td><td><a><img src="/images/3-opt2.gif"></a></td></tr></table>
+<footer><strong>Louis Tiao</strong><cite><a target="_blank" rel="noopener" href="http://louistiao.me/notes/visualizing-and-animating-optimization-algorithms-with-matplotlib/">Visualizing and Animating Optimization Algorithms with Matplotlib</a></cite></footer></blockquote>
+
+<table><tr><td><a><img src="/images/3-opt1.gif" ></a></td><td><a><img src="/images/3-opt2.gif" ></a></td></tr></table>
 
 <h2 id="Which-algorithm-to-use"><a href="#Which-algorithm-to-use" class="headerlink" title="Which algorithm to use"></a>Which algorithm to use</h2><ul>
 <li>Adaptive Learning rate methods (AdaGrad/Adadelta/RMSProp/Adam) are particularly useful for sparse features</li>
 <li>Adam might be the best overall choice.</li>
-<li>Many recent papers use vanilla SGD without momentum and a simple learning rate annealing schedule. This post give an insight <a href="https://zhuanlan.zhihu.com/p/32230623" target="_blank" rel="noopener">Adam那么棒，为什么还对SGD念念不忘</a></li>
+<li>Many recent papers use vanilla SGD without momentum and a simple learning rate annealing schedule. This post give an insight <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32230623">Adam那么棒，为什么还对SGD念念不忘</a></li>
 </ul>
 
     </article>
@@ -536,7 +539,7 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2021/01/26/Dall.E/" title="DALL·E">
+                <a href= "/2021/01/26/Dall.E/" title= "DALL·E">
                     <div class="nextTitle">DALL·E</div>
                 </a>
             
@@ -544,7 +547,7 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/04/02/Regularization/" title="Regularization">
+                <a href= "/2019/04/02/Regularization/" title= "Regularization">
                     <div class="prevTitle">Regularization</div>
                 </a>
             
@@ -563,7 +566,7 @@ height:50vh;
     
     
     <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <div id="comment"></div>
     <script>
     new Valine({
@@ -592,13 +595,13 @@ height:50vh;
     
         
             
-                <a href="mailto:mercihu0318@gmail.com" class="iconfont-archer email" title="email"></a>
+                <a href="mailto:mercihu0318@gmail.com" class="iconfont-archer email" title=email ></a>
             
         
     
         
             
-                <a href="//github.com/mhh0318" class="iconfont-archer github" target="_blank" title="github"></a>
+                <a href="//github.com/mhh0318" class="iconfont-archer github" target="_blank" title=github></a>
             
         
     
@@ -644,7 +647,7 @@ height:50vh;
     <!-- powered by Hexo  -->
     <div class="copyright">
         <span id="hexo-power">A Rookie in <a target="_blank"> Machine Learning </a>
-    </span></div>
+    </div>
     <!-- 不蒜子  -->
     
     <div class="busuanzi-container">
@@ -731,6 +734,8 @@ top:50vh;
     
     
     
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 5
@@ -749,7 +754,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/26</span><a class="archive-post-title" href="/2021/01/26/Dall.E/">DALL·E</a>
+            <span class="archive-post-date">01/26</span><a class="archive-post-title" href= "/2021/01/26/Dall.E/" >DALL·E</a>
         </li>
     
     
@@ -763,25 +768,25 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/Optimizer/">Optimizers</a>
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href= "/2019/04/12/Optimizer/" >Optimizers</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/02</span><a class="archive-post-title" href="/2019/04/02/Regularization/">Regularization</a>
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2019/04/02/Regularization/" >Regularization</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/25</span><a class="archive-post-title" href="/2019/03/25/Summary-1/">Shallow Neural Network</a>
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2019/03/25/Summary-1/" >Shallow Neural Network</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/10</span><a class="archive-post-title" href="/2019/03/10/1/">The First Blog to TEST</a>
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2019/03/10/1/" >The First Blog to TEST</a>
         </li>
     
-    </ul></div>
+    </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
@@ -791,6 +796,10 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="Sigmoid"><span class="iconfont-archer">&#xe606;</span>Sigmoid</span>
     
         <span class="sidebar-tag-name" data-tags="cross-entropy"><span class="iconfont-archer">&#xe606;</span>cross-entropy</span>
+    
+        <span class="sidebar-tag-name" data-tags="L1 and L2 norm"><span class="iconfont-archer">&#xe606;</span>L1 and L2 norm</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dropout"><span class="iconfont-archer">&#xe606;</span>Dropout</span>
     
         <span class="sidebar-tag-name" data-tags="mini-Batch"><span class="iconfont-archer">&#xe606;</span>mini-Batch</span>
     
@@ -802,17 +811,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Momentum"><span class="iconfont-archer">&#xe606;</span>Momentum</span>
     
-        <span class="sidebar-tag-name" data-tags="L1 and L2 norm"><span class="iconfont-archer">&#xe606;</span>L1 and L2 norm</span>
-    
-        <span class="sidebar-tag-name" data-tags="Dropout"><span class="iconfont-archer">&#xe606;</span>Dropout</span>
-    
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br>
-    1、请确保node版本大于6.2<br>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
     3、在根目录_config.yml里添加配置：
     <pre style="color: #787878; font-size: 0.6rem;">
 jsonContent:
@@ -839,9 +844,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="Essay"><span class="iconfont-archer">&#xe60a;</span>Essay</span>
-    
         <span class="sidebar-category-name" data-categories="NeuralNetworks"><span class="iconfont-archer">&#xe60a;</span>NeuralNetworks</span>
+    
+        <span class="sidebar-category-name" data-categories="Essay"><span class="iconfont-archer">&#xe60a;</span>Essay</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -878,7 +883,22 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 </html>
 
 
