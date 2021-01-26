@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>明 | Ming&#39;s Studio</title>
+    <title>DALL·E · 明 | Ming&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/"> HomePage </a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">DALL·E</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/"> Home Page </a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/2560x863)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            DALL·E
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">731</span>Reading time: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/01/26</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,43 +393,84 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/25/Summary-1/">
-            
-                <span>Shallow Neural Network</span>
-        </a>
-        <div class="abstract-content">
-            Some basic mathematical problem in neural network with only one hidden layer.
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Logit Regression">Logit Regression</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Sigmoid">Sigmoid</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="cross-entropy">cross-entropy</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="DALL-E"><a href="#DALL-E" class="headerlink" title="DALL.E"></a>DALL.E</h1><p>Basic Understand: DALL.E = GPT-3 + VQ-VAE-2, which has 12 billion paras, compared with GPT-3 (175 billion), GPT-2(1.5 B)</p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>DALL.E encode text(256) and image(1024) up to 1280 tokens in total, and model them <strong><em>autoregressively</em></strong>. Using maximum likelihood to trained and generated the token. This training process makes the model not only be able to generate image from scratch, but also extend the existing image. </p>
+<p>Attention Mask is at each of 64 self-attention layers, which allows each image token to attend to all text tokens. Standard causal mask and sparse attention mask for image (row, column or conv-features).  The final result is reranked by CLIP, select top 32 of 512 for each caption</p>
+<ul>
+<li><p>One token means a symbol from a discrete vocabulary. </p>
+<ul>
+<li><p>Each <strong><em>image caption</em></strong> (or text) is represented by a 256 Byte-pair Encodings (BPE) [1] tokens with a vocabulary size of 16384 ($2^{14}$)</p>
+</li>
+<li><p>Each image is represented using 1024 tokens with a vocabulary size of 8192 ($2^{13}$)</p>
+</li>
+</ul>
+</li>
+<li><p>The images are pre-processed to 256*256, and compressed to a 32*32 grid of discrete latent variables using a discrete VAE (VQ-VAE)</p>
+</li>
+<li><p><strong><em>Note</em></strong> </p>
+<blockquote>
+<p>The discrete VAE is pre-trained by a continuous relaxation, which can obviates the need for an <strong><em>explicit codebook</em></strong>, EMA loss, or tricks like dead code revival.</p>
+</blockquote>
+<p>Q: Original VQ-VAE requires a codebook. DALL.E also seems need an explicit vocabulary. </p>
+</li>
+</ul>
+<p>Flowchart of DALL.E<br>$$<br>Image\ caption\ and/or\ Image =&gt; GPT-3 (Encode) =&gt; Tokens =&gt; VQ-VAE (Decode) =&gt; Image<br>$$<br>BPE[1] is a sub-word model, which is based on greedy algorithm. The size of vocabulary is a hyperparameter, which is equal to the base vocabulary size + the number of merges.  <a href="https://huggingface.co/transformers/model_doc/gpt.html" target="_blank" rel="noopener">GPT</a> has a vocabulary size of 40,478 since they have 478 base characters and chose to stop training after 40,000 merges.  <a href="https://huggingface.co/transformers/model_doc/gpt.html" target="_blank" rel="noopener">GPT-2</a> has a vocabulary size of 50,257, which corresponds to the 256 bytes base tokens, a special end-of-text token and the symbols learned with 50,000 merges.</p>
+<h2 id="VQ-VAE"><a href="#VQ-VAE" class="headerlink" title="VQ-VAE"></a>VQ-VAE</h2><p><img src="/images/VQ-VAE.png" alt="VQ-VAE"></p>
+<p>VQ-VAE main idea:  The dimensions are first reduced and then the encoded vectors are modelled using autoregression model like PixelCNN.</p>
+<p>First we train a codebook $C[K,I]$ where $C[k,I]$ is the center vector of cluster $k$, the dimension is $K\times D$. The clusters are generated by K-Means.<br>$$<br>\begin{aligned}<br>L[X,Y] &amp;= Encoder_{\phi}(s) \<br>z[x,y] &amp;= argmin\ ||L[x,y] - C[k]|| \<br>\hat{L}[X,Y] &amp;= C[z[x,y]] \<br>\hat{s} &amp;= Decoder_{\phi}(\hat{L}[X,Y])\<br>\end{aligned}<br>$$<br>$s$ is the image, $L$ means the feature map of $L$-th layer,  $z[x,y]$ is the latent vector, while $Z[X,Y]$ is the symbolic image with bit length $XY\log_2K$</p>
+<p>There are two term in the loss function, one is quantization loss, which used to align the vector space and another is reconstruction loss.  The quantization loss have two parts: <em>codebook loss</em> and <em>commitment loss</em>. Commitment loss only train encoder and codebook loss only train the codebook. Thus the whole objective function can be describe like:<br>$$<br>Loss(s,Decoder(C[k])) = ||s-Decoder(C[k])||_2^2 + ||sg[Encoder(s)] - C[k]||_2^2 + \beta||sg[C[k]]-Encoder(s)||^2_2<br>$$<br>Because the code book loss is only used for updating the codebook, thus Exponential moving average (EMA) loss can replace the codebook loss, which is the 2nd term in above equation. </p>
+<p>Proof:<br>$$<br>\begin{align}<br>Codebook\ loss: Loss &amp;= ||sg[E(s)] - C[k]||_2^2\<br>&amp;= \sum_j^K||E(s_{j})-C[j]||_2^2\<br>C[k] &amp;= \frac{1}{K} \sum_j^KE(s_{j}) \<br>As\ Minibatch, EMA\ is\ used\<br>K^{(t)} &amp;= K^{(t-1)}\times\gamma+k^{(t)}\times(1-\gamma)\<br>m^{(t)} &amp;= m^{(t-1)}\times\gamma+\sum_jC[j]^{(t)}(1-\gamma)\<br>C[k] &amp;= \frac{m^{(t)}}{K^{(t)}}  \<br>\end{align}<br>$$<br>The prior of latent variable is categorical distribution, and <em>can be modelled by the other latent variable autoregressively</em>. In training process, the Cat keeps uniform and constant. After training, fitting an autoregressive distribution over z, p(z), so that generating x via ancestral sampling(向前采样). Using PixelCNN to construct the new image.</p>
+<h3 id="NVAE"><a href="#NVAE" class="headerlink" title="NVAE"></a>NVAE</h3><p>[1] <a href="https://arxiv.org/abs/1508.07909" target="_blank" rel="noopener">Neural Machine Translation of Rare Words with Subword Units (Sennrich et al., 2015)</a></p>
+
     </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/04/12/Optimizer/" title="Optimizers">
+                    <div class="prevTitle">Optimizers</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "NSjyzLH1Tpagwt9WJy9mTjak-gzGzoHsz",
+        appKey: "ud7gLUDDmxtfrI0rUEboicQe",
+        placeholder: "Do not be shy to chat here, guys.",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -452,6 +548,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DALL-E"><span class="toc-number">1.</span> <span class="toc-text">DALL.E</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.1.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VQ-VAE"><span class="toc-number">1.2.</span> <span class="toc-text">VQ-VAE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NVAE"><span class="toc-number">1.2.1.</span> <span class="toc-text">NVAE</span></a></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -652,6 +766,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
